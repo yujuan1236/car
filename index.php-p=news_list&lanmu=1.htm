@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset=utf-8"utf-8">
+<title>山西HTML5全屏网站案例</title>
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://sxh5.15.baidusx.com/templates/default//resource/css/style.css">
+<link rel="stylesheet" href="font-awesome.min.css" tppabs="http://sxh5.15.baidusx.com/templates/default//resource/font/css/font-awesome.min.css">
+<script src="jquery-1.8.3.min.js" tppabs="http://sxh5.15.baidusx.com/templates/default//resource/js/jquery-1.8.3.min.js"></script>
+<script src="layer.js" tppabs="http://sxh5.15.baidusx.com/templates/default//resource/layer/layer.js"></script> 
+<style type="text/css">
+.News_list li{ padding-top:21px; height:108px; padding-bottom:20px; clear:both; border-bottom:1px solid #e8e8e8; overflow:hidden;}
+.News_list li img{ width:167px; height:94px; display:block; padding:6px; border:1px solid #e4e4e4; float:left;}
+.News_list li img:hover{ border:1px solid #015f3d;}
+.News_list li .ConRight{ padding-left:220px;}
+.News_list li .ConRight h3{ color:#333; font-size:14px; font-family:'微软雅黑'; padding-bottom:10px;}
+.News_list li .ConRight h3 a:hover{ color:#015f3d;}
+.News_list li .ConRight p{ font-family:'微软雅黑'; color:#888; line-height:28px;}
+.News_list li .ConRight p a{ color:#015f3d; padding-left:10px;}
+</style>
+<script type="text/javascript">
+$(function(){
+	$("#gengduo_button").click(function(){
+		var num=3;//显示个数
+		var page=$("#gengduo_button").attr('page');//第几个分页
+		var nodata=$("#gengduo_button").attr('nodata');//判断是否有数据
+		if(page){
+			page=parseInt(page);
+		}else{
+			page=1;
+		}
+		var type='';//新闻所属分类
+		var lanmu='1';//新闻所属栏目
+
+		if(lanmu){
+			if(nodata!=="no"){
+				layer.load(2, { shade: [0.1,'#fff'] });
+				$.post("index.php-a=news_list_ajax.htm"/*tpa=http://sxh5.15.baidusx.com/index.php?a=news_list_ajax*/,{news_num:num,news_page:page,news_type:type,news_lanmu:lanmu},function(data){
+				if(data){
+					layer.closeAll('loading');
+					if(data=="2"){
+						layer.msg('服务器错误，请稍后重试');
+						}else{
+							if(data=="1"){
+								layer.msg('没有更多数据了');
+								$("#gengduo_button").attr('nodata','no');
+								}else{
+									$(".News_list ul").append(data);
+									$(".News_list ul li").slideDown(500)
+									page=page+1;
+									$("#gengduo_button").attr('page',page);
+									}
+							}
+					}else{
+						layer.msg('网络错误，请稍候重试');
+						}
+				})
+				}else{
+					layer.closeAll('loading');
+					layer.msg('没有更多数据了');
+					}
+			}else{
+				layer.msg('请求参数不正确');
+				}
+		})
+})
+</script>
+</head>
+
+<body>
+<div class="ConTent">
+  	<div class="News_list">
+        
+                <ul>
+                        <li>
+                <a href="index.php-p=news_show&id=6&c_id=2&lanmu=1.htm" tppabs="http://sxh5.15.baidusx.com/index.php?p=news_show&id=6&c_id=2&lanmu=1"><img src="20160416151023_90153.png" tppabs="http://sxh5.15.baidusx.com/uploadfile/image/20160416/20160416151023_90153.png"></a>
+                <div class="ConRight">
+                    <h3>2016-04-16&nbsp;&nbsp;<a href="index.php-p=news_show&id=6&c_id=2&lanmu=1.htm" tppabs="http://sxh5.15.baidusx.com/index.php?p=news_show&id=6&c_id=2&lanmu=1">基于的单页应用组件</a></h3>
+                    <p>基于的单页应用组件基于的单页应用组件基于的单页应用组件基于的单页应用组件基于的单页应用组件基于的单页应用组件基于的单页应用组件基于的单页应用组件基于的单页应用组件基于的单页应用组件基于的单页应用组件基...……  <a href="index.php-p=news_show&id=6&c_id=2&lanmu=1.htm" tppabs="http://sxh5.15.baidusx.com/index.php?p=news_show&id=6&c_id=2&lanmu=1">查看详细</a></p>
+                </div>
+            </li>
+                        <li>
+                <a href="index.php-p=news_show&id=5&c_id=2&lanmu=1.htm" tppabs="http://sxh5.15.baidusx.com/index.php?p=news_show&id=5&c_id=2&lanmu=1"><img src="20160416150920_47348.jpg" tppabs="http://sxh5.15.baidusx.com/uploadfile/image/20160416/20160416150920_47348.jpg"></a>
+                <div class="ConRight">
+                    <h3>2016-04-16&nbsp;&nbsp;<a href="index.php-p=news_show&id=5&c_id=2&lanmu=1.htm" tppabs="http://sxh5.15.baidusx.com/index.php?p=news_show&id=5&c_id=2&lanmu=1">此款抗寒保暖外套由牛津尼龙布料制成</a></h3>
+                    <p>2012年中国国际警用装备博览会2012年中国国际警用装备博览会2012年中国国际警用装备博览会2012年中国国际警用装备博览会2012年中国国际警用装备博览会2012年中国国际警用装备博览会2012...……  <a href="index.php-p=news_show&id=5&c_id=2&lanmu=1.htm" tppabs="http://sxh5.15.baidusx.com/index.php?p=news_show&id=5&c_id=2&lanmu=1">查看详细</a></p>
+                </div>
+            </li>
+                        <li>
+                <a href="index.php-p=news_show&id=4&c_id=2&lanmu=1.htm" tppabs="http://sxh5.15.baidusx.com/index.php?p=news_show&id=4&c_id=2&lanmu=1"><img src="20160416150904_36260.jpg" tppabs="http://sxh5.15.baidusx.com/uploadfile/image/20160416/20160416150904_36260.jpg"></a>
+                <div class="ConRight">
+                    <h3>2016-04-16&nbsp;&nbsp;<a href="index.php-p=news_show&id=4&c_id=2&lanmu=1.htm" tppabs="http://sxh5.15.baidusx.com/index.php?p=news_show&id=4&c_id=2&lanmu=1">2012年中国国际警用装备博览会</a></h3>
+                    <p>2012年中国国际警用装备博览会2012年中国国际警用装备博览会2012年中国国际警用装备博览会2012年中国国际警用装备博览会2012年中国国际警用装备博览会2012年中国国际警用装备博览会2012...……  <a href="index.php-p=news_show&id=4&c_id=2&lanmu=1.htm" tppabs="http://sxh5.15.baidusx.com/index.php?p=news_show&id=4&c_id=2&lanmu=1">查看详细</a></p>
+                </div>
+            </li>
+                    </ul>
+            </div>
+    <div class="h30"></div>
+    <div class="mores" id="gengduo_button" page="2">查看更多</div>
+</div>
+</div>
+</body>
+</html>
